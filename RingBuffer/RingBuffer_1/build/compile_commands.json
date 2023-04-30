@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/dyx/code/LearningCode/Study_RingBuffer/RingBuffer_1/build",
+  "command": "/usr/bin/g++  -I/home/dyx/code/LearningCode/Study_RingBuffer/RingBuffer_1/include -g -Wall -std=c++11 -o CMakeFiles/ringbuffer_1.dir/src/main.cpp.o -c /home/dyx/code/LearningCode/Study_RingBuffer/RingBuffer_1/src/main.cpp",
+  "file": "/home/dyx/code/LearningCode/Study_RingBuffer/RingBuffer_1/src/main.cpp"
+},
+{
+  "directory": "/home/dyx/code/LearningCode/Study_RingBuffer/RingBuffer_1/build",
+  "command": "/usr/bin/g++  -I/home/dyx/code/LearningCode/Study_RingBuffer/RingBuffer_1/include -g -Wall -std=c++11 -o CMakeFiles/ringbuffer_1.dir/src/ringbuffer.cpp.o -c /home/dyx/code/LearningCode/Study_RingBuffer/RingBuffer_1/src/ringbuffer.cpp",
+  "file": "/home/dyx/code/LearningCode/Study_RingBuffer/RingBuffer_1/src/ringbuffer.cpp"
+}
+]

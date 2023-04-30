@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -rdynamic CMakeFiles/InfoManage_test.dir/test/InfoManageTest.cpp.o -o InfoManage_test  lib/libInfoManage.a /usr/local/lib/libgtest.a /usr/local/lib/libgtest_main.a /usr/local/lib/libgtest.a 

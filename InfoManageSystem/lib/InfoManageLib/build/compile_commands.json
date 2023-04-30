@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build",
+  "command": "/usr/bin/g++  -I/home/dyx/code/InfoManageSystem/lib/InfoManageLib/include -g -Wall -std=c++11 -o CMakeFiles/InfoManage.dir/src/CStudentDTO.cpp.o -c /home/dyx/code/InfoManageSystem/lib/InfoManageLib/src/CStudentDTO.cpp",
+  "file": "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/src/CStudentDTO.cpp"
+},
+{
+  "directory": "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build",
+  "command": "/usr/bin/g++  -I/home/dyx/code/InfoManageSystem/lib/InfoManageLib/include -g -Wall -std=c++11 -o CMakeFiles/InfoManage.dir/src/IInfoManage.cpp.o -c /home/dyx/code/InfoManageSystem/lib/InfoManageLib/src/IInfoManage.cpp",
+  "file": "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/src/IInfoManage.cpp"
+},
+{
+  "directory": "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build",
+  "command": "/usr/bin/g++  -I/home/dyx/code/InfoManageSystem/lib/InfoManageLib/include -g -Wall -std=c++11 -o CMakeFiles/InfoManage.dir/src/InfoManageImpl.cpp.o -c /home/dyx/code/InfoManageSystem/lib/InfoManageLib/src/InfoManageImpl.cpp",
+  "file": "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/src/InfoManageImpl.cpp"
+},
+{
+  "directory": "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build",
+  "command": "/usr/bin/g++  -I/home/dyx/code/InfoManageSystem/lib/InfoManageLib/include -g -Wall -std=c++11 -o CMakeFiles/InfoManage_test.dir/test/InfoManageTest.cpp.o -c /home/dyx/code/InfoManageSystem/lib/InfoManageLib/test/InfoManageTest.cpp",
+  "file": "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/test/InfoManageTest.cpp"
+}
+]

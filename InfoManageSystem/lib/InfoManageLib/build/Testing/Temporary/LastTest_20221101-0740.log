@@ -1,0 +1,84 @@
+Start testing: Nov 01 16:37 CST
+----------------------------------------------------------
+2/3 Testing: deleteStudentByID_Test.BasicTest
+2/3 Test: deleteStudentByID_Test.BasicTest
+Command: "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build/InfoManage_test" "--gtest_filter=deleteStudentByID_Test.BasicTest" "--gtest_also_run_disabled_tests"
+Directory: /home/dyx/code/InfoManageSystem/lib/InfoManageLib/build
+"deleteStudentByID_Test.BasicTest" start time: Nov 01 16:37 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/dyx/下载/googletest-release-1.12.1/googletest/src/gtest_main.cc
+Note: Google Test filter = deleteStudentByID_Test.BasicTest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from deleteStudentByID_Test
+[ RUN      ] deleteStudentByID_Test.BasicTest
+[       OK ] deleteStudentByID_Test.BasicTest (0 ms)
+[----------] 1 test from deleteStudentByID_Test (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"deleteStudentByID_Test.BasicTest" end time: Nov 01 16:37 CST
+"deleteStudentByID_Test.BasicTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+1/3 Testing: addStudent_Test.BasicTest
+1/3 Test: addStudent_Test.BasicTest
+Command: "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build/InfoManage_test" "--gtest_filter=addStudent_Test.BasicTest" "--gtest_also_run_disabled_tests"
+Directory: /home/dyx/code/InfoManageSystem/lib/InfoManageLib/build
+"addStudent_Test.BasicTest" start time: Nov 01 16:37 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/dyx/下载/googletest-release-1.12.1/googletest/src/gtest_main.cc
+Note: Google Test filter = addStudent_Test.BasicTest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from addStudent_Test
+[ RUN      ] addStudent_Test.BasicTest
+[       OK ] addStudent_Test.BasicTest (0 ms)
+[----------] 1 test from addStudent_Test (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"addStudent_Test.BasicTest" end time: Nov 01 16:37 CST
+"addStudent_Test.BasicTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: dlistStudentsByScore_Test.BasicTest
+3/3 Test: dlistStudentsByScore_Test.BasicTest
+Command: "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build/InfoManage_test" "--gtest_filter=dlistStudentsByScore_Test.BasicTest" "--gtest_also_run_disabled_tests"
+Directory: /home/dyx/code/InfoManageSystem/lib/InfoManageLib/build
+"dlistStudentsByScore_Test.BasicTest" start time: Nov 01 16:37 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/dyx/下载/googletest-release-1.12.1/googletest/src/gtest_main.cc
+Note: Google Test filter = dlistStudentsByScore_Test.BasicTest
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from dlistStudentsByScore_Test
+[ RUN      ] dlistStudentsByScore_Test.BasicTest
+[       OK ] dlistStudentsByScore_Test.BasicTest (0 ms)
+[----------] 1 test from dlistStudentsByScore_Test (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"dlistStudentsByScore_Test.BasicTest" end time: Nov 01 16:37 CST
+"dlistStudentsByScore_Test.BasicTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 01 16:37 CST

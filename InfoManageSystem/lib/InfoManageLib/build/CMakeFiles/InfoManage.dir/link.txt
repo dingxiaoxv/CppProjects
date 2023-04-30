@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libInfoManage.a CMakeFiles/InfoManage.dir/src/CStudentDTO.cpp.o CMakeFiles/InfoManage.dir/src/IInfoManage.cpp.o CMakeFiles/InfoManage.dir/src/InfoManageImpl.cpp.o
+/usr/bin/ranlib lib/libInfoManage.a

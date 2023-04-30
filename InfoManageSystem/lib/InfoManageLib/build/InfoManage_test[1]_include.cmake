@@ -1,0 +1,5 @@
+if(EXISTS "/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build/InfoManage_test[1]_tests.cmake")
+  include("/home/dyx/code/InfoManageSystem/lib/InfoManageLib/build/InfoManage_test[1]_tests.cmake")
+else()
+  add_test(InfoManage_test_NOT_BUILT InfoManage_test_NOT_BUILT)
+endif()

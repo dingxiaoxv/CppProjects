@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.0.2)
+set(CMAKE_BUILD_TYPE Debug)
+project(testjson)
+include_directories(include)
+add_executable(testjson main.cpp)

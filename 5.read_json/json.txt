@@ -1,0 +1,1 @@
+{"domain":"1000.mt.cn.iot.dreame.tech:18883","passwd":"dreame2023","region":"cn","ssid":"dreamerobot_mower","timestamp":"1690449049","timezone":"Asia\/Shanghai","uid":"AM375330"}

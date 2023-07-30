@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -rdynamic CMakeFiles/ringbuffer_3.dir/src/main.cpp.o CMakeFiles/ringbuffer_3.dir/src/ringbuffer.cpp.o -o ringbuffer_3 

@@ -32,3 +32,6 @@ tcp socket 通信，客户端+服务端
 # 8.read_whole_file
 
 使用  std::istreambuf_iterator 配合 copy 算法实现一次性读取整个文本文件
+
+# 9.get_wlan_mac
+使用 socket 套接字配合 ioctl 函数获取网卡 mac 地址，并转换为 string 输出

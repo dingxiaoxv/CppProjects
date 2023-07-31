@@ -28,3 +28,7 @@ tcp socket 通信，客户端+服务端
 # 7.vector_to_hexstr
 
 使用 iomanip 配合 sstrem 实现 vector 转为16进制字符串显示
+
+# 8.read_whole_file
+
+使用  std::istreambuf_iterator 配合 copy 算法实现一次性读取整个文本文件

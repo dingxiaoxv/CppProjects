@@ -3,10 +3,16 @@
 #include <iostream>
 #include <fstream>
 
+struct DeviceInfo
+{
+    std::string did;
+    std::string key;
+    std::string pincode;
+};
+
 void testFunc(const char *origin)
 {
     rapidjson::Document doc;
-    printf("%s\n", origin);
     doc.Parse(std::string(origin).c_str());
     if (doc.HasParseError())
     {
@@ -17,16 +23,35 @@ void testFunc(const char *origin)
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
     doc.Accept(writer);
     const char *jsonFilePath = "dmio_pair.json";
-    FILE *jsonFile = fopen(jsonFilePath, "w");
-    if (jsonFile != NULL)
+    std::ofstream jsonFile(jsonFilePath);
+    if (jsonFile.is_open())
     {
-        fwrite(buffer.GetString(), sizeof(char), buffer.GetSize(), jsonFile);
-        fclose(jsonFile);
+        jsonFile << buffer.GetString();
+        jsonFile.close();
         std::cout << "json file saved succeed!" << std::endl;
     }
     else
     {
         std::cout << "json file saved failed!" << std::endl;
+    }
+
+    DeviceInfo devinfo;
+    devinfo.did = "-110010989";
+    std::string mac = "C8:5C:CC:A3:28:71";
+    std::string model = "dreame.mower.p2255";
+    const char *deviceConfName = "device.conf";
+    std::ofstream deviceConf(deviceConfName);
+    if (deviceConf.is_open())
+    {
+        deviceConf << "did=" << devinfo.did << "\n";
+        deviceConf << "mac=" << mac << "\n";
+        deviceConf << "model=" << model;
+        deviceConf.close();
+        std::cout << "device conf saved succeed!" << std::endl;
+    }
+    else
+    {
+        std::cout << "device conf saved failed!" << std::endl;
     }
 }
 
@@ -41,11 +66,9 @@ int main()
     std::string line, text;
     while (getline(file, line))
     {
-        text+=line;
+        text += line;
     }
-    std::cout << text << std::endl;
-    unsigned char origin[1024] = text.c_str();
-    testFunc(origin);
+    testFunc(text.c_str());
 
     return 0;
 }

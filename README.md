@@ -11,7 +11,7 @@ c++不同方法实现环形缓冲区
 
 # 3.udp_com
 
-多线程实现udp socket 通信以及文件 IO
+多线程实现 udp socket 通信以及文件 IO
 
 # 4.tcp_com
 

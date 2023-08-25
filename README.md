@@ -35,3 +35,7 @@ tcp socket 通信，客户端+服务端
 
 # 9.get_wlan_mac
 使用 socket 套接字配合 ioctl 函数获取网卡 mac 地址，并转换为 string 输出
+
+# 10.pipe_com
+
+使用 mkfifo 配合 fifo 实现 c++ 程序和 shell 脚本的管道通信

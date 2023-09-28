@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <iomanip>
 #include <chrono>
+#include <string.h>
 
 std::vector<std::vector<uint8_t>> notificationQueue_;
 std::vector<uint8_t> rosRespQueue_;
@@ -79,6 +80,19 @@ std::vector<std::vector<uint8_t>> subVector(const std::vector<uint8_t> &vec, siz
   }
 }
 
+void testClear(std::vector<uint8_t> &vec) {
+  if (vec.empty()) {
+    std::cout << "vec is empty" << std::endl;
+  }
+  // vec.resize(20);
+  // memset(&vec[0], 0, 20);
+  vec.clear();
+
+  if (vec.empty()) {
+    std::cout << "vec is empty" << std::endl;
+  }
+}
+
 int main()
 {
   // std::vector<uint8_t> oriVec = {0xAB, 0xCD, 0xEF, 0x01, 0x23};
@@ -95,16 +109,19 @@ int main()
   // std::cout << "push average time: " << pushElapsedTime/10 << " ms" << std::endl;
   // std::cout << "insert average time: " << insertElapsedTime/10 << " ms" << std::endl;
 
-  std::vector<uint8_t> vecOri, vec1(20, 1), vec2(20, 2), vec3(10, 3);
-  vecOri.reserve(50);
-  vecOri.insert(vecOri.end(), vec1.begin(), vec1.end());
-  vecOri.insert(vecOri.end(), vec2.begin(), vec2.end());
-  vecOri.insert(vecOri.end(), vec3.begin(), vec3.end());
-  std::vector<std::vector<uint8_t>> packets = subVector(vecOri, 20);
-  for (const auto &packet : packets)
-  {
-    std::cout << vectorToHexString_2(packet) << std::endl;
-  }
+  // std::vector<uint8_t> vecOri, vec1(20, 1), vec2(20, 2), vec3(10, 3);
+  // vecOri.reserve(50);
+  // vecOri.insert(vecOri.end(), vec1.begin(), vec1.end());
+  // vecOri.insert(vecOri.end(), vec2.begin(), vec2.end());
+  // vecOri.insert(vecOri.end(), vec3.begin(), vec3.end());
+  // std::vector<std::vector<uint8_t>> packets = subVector(vecOri, 20);
+  // for (const auto &packet : packets)
+  // {
+  //   std::cout << vectorToHexString_2(packet) << std::endl;
+  // }
+
+  std::vector<uint8_t> vec(20, 1);
+  testClear(vec);
 
   return 0;
 }

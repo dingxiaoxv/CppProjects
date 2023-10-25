@@ -8,13 +8,31 @@ void deleteTargetChar(std::string &str, const char &targetChar) {
     str = std::regex_replace(str, regexPattern, "");
 }
 
-int main() {
-    std::string input = "Hello-world-this-is-a-test";
-    char targetChar = '-';
+void processQuote(const char *str) {
+    // 使用正则表达式替换所有反斜杠
+    // std::regex backslashPattern("\\\\");
+    // std::string backslashReplacement = "\\\\\\\\";
+    // std::string backslashResult = std::regex_replace(str, backslashPattern, backslashReplacement);
 
-    deleteTargetChar(input, targetChar);
+    // 使用正则表达式替换所有引号
+    std::regex quotePattern("\"");
+    std::string quoteReplacement = "\\\"";
+    std::string result = std::regex_replace(str, quotePattern, quoteReplacement);
 
-    std::cout << "Modified String: " << input << std::endl;
+    // 输出结果
+    std::cout << "Modified string: " << result << std::endl;
+}
+
+int main(int argc, const char* argv[]) {
+
+    // std::string input = "test:{This is a "quoted" string with \\ backslashes.}";
+    // char targetChar = '-';
+
+    // deleteTargetChar(input, targetChar);
+
+    processQuote(argv[1]);
+
+    // std::cout << "Modified String: " << input << std::endl;
 
     return 0;
 }

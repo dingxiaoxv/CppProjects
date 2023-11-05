@@ -55,3 +55,33 @@ tcp socket 通信，客户端+服务端
 # 10.pipe_com
 
 使用 mkfifo 配合 fifo 实现 c++ 程序和 shell 脚本的管道通信
+
+# 11.main_func
+
+main 函数获取输入
+
+# 12.md5
+
+使用 md5 给文件加密
+
+# 13.keyboard
+
+使用 ncurses 读取键盘输入
+
+# 14.process_list
+
+处理 std::list
+
+1.插入元素
+
+2.删除元素
+
+3.找到指定元素删除后再插入
+
+# 16.thread_pool
+
+线程池
+
+# 17.doublyLinkedList
+
+自定义双链表

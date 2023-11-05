@@ -21,17 +21,33 @@ tcp socket 通信，客户端+服务端
 
 使用 rapidjson 解析 json 字符串，存储 json 文件
 
-# 6.sub_vector
+# 6.process_vector
 
-使用 copy 算法和 std::back_inserter 截取部分 vector
+处理 std::vector
 
-# 7.vector_to_hexstr
+1.vector 转16进制字符串
 
-使用 iomanip 配合 sstrem 实现 vector 转为16进制字符串显示
+2.push_back 和 insert 速度对比
 
-# 8.read_whole_file
+3.vector 分包
 
-使用  std::istreambuf_iterator 配合 copy 算法实现一次性读取整个文本文件
+4.清空 vector 的方法
+
+# 7.process_str
+
+处理 std::string
+
+1.使用正则表达式删除所有指定字符
+
+2.使用正则表达式将字符串中的引号处理为 /"
+
+# 8.process_file
+
+处理文件
+
+1.使用 std::istreambuf_iterator 配合 copy 算法实现一次性读取整个文本文件
+
+2.读写文件
 
 # 9.get_wlan_mac
 使用 socket 套接字配合 ioctl 函数获取网卡 mac 地址，并转换为 string 输出

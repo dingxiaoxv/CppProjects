@@ -1,8 +1,7 @@
-#include <ncurses.h>
 #include <iostream>
+#include <ncurses.h>
 
-int main()
-{
+int main() {
   // setlocale(LC_ALL, ""); // 设置字符集为UTF-8
   // 初始化 ncurses
   initscr();
@@ -16,8 +15,7 @@ int main()
 
   // 循环等待键盘事件
   int cnt = 0;
-  while (1)
-  {
+  while (1) {
     int ch = getch(); // 获取按下的键值
 
     if (ch == 'q' || ch == 'Q')

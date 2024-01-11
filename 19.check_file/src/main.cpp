@@ -4,22 +4,34 @@
 #include <getopt.h>
 
 const size_t ONE_GB = 1024 * 1024 * 1024;
-const std::string OUT_FILE = "test.bin";
+const std::string OUT_FILE = "test.data";
 
 void createFile() {
+  std::cout << "creating 1GB file...." << std::endl;
   std::ofstream file(OUT_FILE, std::ios::binary);
   if (!file) {
     std::cerr << "Cannot open file for writing." << std::endl;
     return;
   }
 
+  size_t writtenBytes = 0;
+  const size_t updateInterval = ONE_GB / 100;
+
   for (size_t i = 0; i < ONE_GB; ++i) {
     char data = static_cast<char>(i % 256);
     file.write(&data, sizeof(data));
+    ++writtenBytes;
+
+    if (writtenBytes % updateInterval == 0) {
+      int progress = static_cast<int>((static_cast<double>(writtenBytes) / ONE_GB) * 100);
+      std::cout << "\rProgress: " << progress << "%" << std::flush;  // Use \r to return to the beginning of the line
+    }
   }
+  std::cout << "\nfile create completed!" << std::endl;
 }
 
 int verifyFile(const std::string &toVerify) {
+  std::cout << "checking file " << toVerify << "..." << std::endl;
   std::ifstream origFile(OUT_FILE, std::ios::binary);
   std::ifstream verifyFile(toVerify, std::ios::binary);
 
@@ -55,15 +67,16 @@ int main(int argc, char *argv[]) {
     switch (opt) {
     case 'c':
       createFile();
-      break;
-    case 'v':
+      return 0;
+    case 'v': {
       filename = optarg;
       int errors = verifyFile(filename);
       std::cout << "Number of errors in file: " << errors << std::endl;
-      break;
+      return 0;
+    }
     default:
       std::cerr << "Usage: " << argv[0] << " --create filename/--verify filename" << std::endl;
-      exit(0);
+      return 1;
     }
   }
 

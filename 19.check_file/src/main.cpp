@@ -24,11 +24,11 @@ void createFile() {
     ++writtenBytes;
 
     if (writtenBytes % updateInterval == 0) {
-      int progress = static_cast<int>((static_cast<double>(writtenBytes) / g_testSize * ONE_GB) * 100);
+      int progress = static_cast<int>((static_cast<double>(writtenBytes) / static_cast<double>(g_testSize * ONE_GB)) * 100);
       std::cout << "\rProgress: " << progress << "%" << std::flush;  // Use \r to return to the beginning of the line
     }
   }
-  std::cout << "\nfile create completed! " << writtenBytes << std::endl;
+  std::cout << "\nfile create completed! total bytes: " << writtenBytes << std::endl;
 }
 
 int verifyFile(const std::string &toVerify) {

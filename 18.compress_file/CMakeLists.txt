@@ -1,13 +1,19 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.0.2)
 
-set(CMAKE_BUILD_TYPE Debug)
+project(test_zip VERSION 1.0.0 LANGUAGES CXX)
 
-project(compress_file)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -g")
 
-find_package(ZLIB REQUIRED)
+find_package(Boost REQUIRED COMPONENTS filesystem system)
 
-include_directories(include)
+include_directories(${CMAKE_SOURCE_DIR}/include ${Boost_INCLUDE_DIRS})
 
-add_executable(compress_file src/main.cpp)
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp ${CMAKE_SOURCE_DIR}/src/*.c)
 
-target_link_libraries(compress_file PRIVATE ZLIB::ZLIB)
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+set(LIBRARY_PATH ${CMAKE_SOURCE_DIR}/lib)
+
+target_link_libraries(${PROJECT_NAME} ${LIBRARY_PATH}/libzip.a ${Boost_LIBRARIES})

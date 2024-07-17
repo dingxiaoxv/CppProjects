@@ -1,90 +1,52 @@
-#include <cstring>
-#include <dirent.h>
-#include <fstream>
+#include <boost/filesystem.hpp>
 #include <iostream>
-#include <string>
-#include <zlib.h>
+#include <zip.h>
 
-void compressFile(const char *source, gzFile dest, int level) {
-  std::ifstream inFile(source, std::ios::binary);
-  if (!inFile) {
-    std::cerr << "Error opening file: " << source << std::endl;
-    return;
-  }
-
-  char buffer[1024];
-  z_stream stream;
-  stream.zalloc = Z_NULL;
-  stream.zfree = Z_NULL;
-  stream.opaque = Z_NULL;
-  deflateInit(&stream, level);
-
-  do {
-    inFile.read(buffer, sizeof(buffer));
-    stream.avail_in = static_cast<uInt>(inFile.gcount());
-    stream.next_in = reinterpret_cast<Bytef *>(buffer);
-
-    do {
-      int deflateResult = Z_OK;
-      stream.avail_out = sizeof(buffer);
-      stream.next_out = reinterpret_cast<Bytef *>(buffer);
-      deflateResult = deflate(&stream, Z_FINISH);
-
-      if (deflateResult == Z_STREAM_ERROR) {
-        std::cerr << "Error compressing file: " << source << std::endl;
-        deflateEnd(&stream);
-        inFile.close();
-        return;
-      }
-
-      int have = sizeof(buffer) - stream.avail_out;
-      gzwrite(dest, buffer, have);
-
-    } while (stream.avail_out == 0);
-
-  } while (inFile);
-
-  deflateEnd(&stream);
-  inFile.close();
-}
-
-void compressFolder(const char *folderPath, const char *outputFilePath, int level) {
-  DIR *dir = opendir(folderPath);
-  if (!dir) {
-    std::cerr << "Error opening directory: " << folderPath << std::endl;
-    return;
-  }
-
-  gzFile dest = gzopen(outputFilePath, "wb");
-  if (!dest) {
-    std::cerr << "Error opening output file: " << outputFilePath << std::endl;
-    closedir(dir);
-    return;
-  }
-
-  dirent *entry;
-  while ((entry = readdir(dir)) != NULL) {
-    std::string filePath = std::string(folderPath) + "/" + entry->d_name;
-
-    // Skip directories "." and ".."
-    if (entry->d_type == DT_DIR &&
-        (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)) {
+void compress_dir(zip_t *zip, const std::string &dir_name) {
+  std::cout << "compress folder " << dir_name << std::endl;
+  for (const auto& entry : boost::filesystem::recursive_directory_iterator(dir_name)) {
+    if (boost::filesystem::is_directory(entry)) {
       continue;
     }
 
-    compressFile(filePath.c_str(), dest, level);
-  }
+    std::cout << entry.path().string() << std::endl;
 
-  gzclose(dest);
-  closedir(dir);
+    zip_entry_open(zip, entry.path().string().c_str());
+    zip_entry_fwrite(zip, entry.path().string().c_str());
+    zip_entry_close(zip);  
+  }
 }
 
-int main() {
-  const char *folderPath = "./test/";
-  const char *outputFilePath = "test.zip";
-  int compressionLevel = Z_BEST_COMPRESSION;
-
-  compressFolder(folderPath, outputFilePath, compressionLevel);
+int on_extract_entry(const char *filename, void *arg) {
+  static int i = 0;
+  int n = *(int *)arg;
+  printf("Extracted: %s (%d of %d)\n", filename, ++i, n);
 
   return 0;
+}
+
+int main(int argc, char *argv[]) {
+  if (argc != 4) {
+    std::cerr << "Usage: " << argv[0] << " <directory> <output.zip>\n";
+    return EXIT_FAILURE;
+  }
+
+  std::string opt = argv[1];
+  std::string dir_name = argv[2];
+  std::string zip_filename = argv[3];
+
+  if (opt == "c") {
+    zip_t *zip = zip_open(zip_filename.c_str(), ZIP_DEFAULT_COMPRESSION_LEVEL, 'w');
+    if (zip == nullptr) {
+      std::cerr << "Could not create zip archive " << zip_filename << "\n";
+      return EXIT_FAILURE;
+    }
+    compress_dir(zip, dir_name);
+    zip_close(zip);
+  } else if (opt == "e") {
+    int arg = 6;
+    zip_extract(zip_filename.c_str(), dir_name.c_str(), on_extract_entry, &arg);
+  }
+
+  return EXIT_SUCCESS;
 }

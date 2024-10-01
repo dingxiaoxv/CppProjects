@@ -1,7 +1,14 @@
 #include <boost/filesystem.hpp>
 #include <iostream>
 #include <zip.h>
+#include <Poco/Zip/Compress.h>
+#include <Poco/Zip/Decompress.h>
+#include <Poco/File.h>
+#include <Poco/Path.h>
 
+#ifdef POCO
+
+#else
 void compress_dir(zip_t *zip, const std::string &dir_name) {
   std::cout << "compress folder " << dir_name << std::endl;
   for (const auto& entry : boost::filesystem::recursive_directory_iterator(dir_name)) {
@@ -24,6 +31,7 @@ int on_extract_entry(const char *filename, void *arg) {
 
   return 0;
 }
+#endif
 
 int main(int argc, char *argv[]) {
   if (argc != 4) {

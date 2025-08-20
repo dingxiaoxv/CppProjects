@@ -1,14 +1,14 @@
-﻿#include <stdio.h>
+﻿#include <cnr/logging.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <sys/socket.h>
 #include <unistd.h>
-#include <cnr/logging.h>
+
 #include "bluez/bluetooth.h"
-#include "bluez/l2cap.h"
 #include "gattclient.h"
 
 bdaddr_t any_bdaddr = {0, 0, 0, 0, 0, 0};
-#define BDADDR_ANY (&any_bdaddr)
+#define DM_BDADDR_ANY (&any_bdaddr)
 
 static void shutdown(int no) {
   (void)no;
@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
     cLOG_ERROR << "Invalid remote address";
     return EXIT_FAILURE;
   }
-  bacpy(&src_addr, BDADDR_ANY);
+  bacpy(&src_addr, DM_BDADDR_ANY);
 
   while (true) {
     mainloop_init();

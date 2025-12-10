@@ -1,5 +1,5 @@
 # CMake最小版本要求
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.16)
 
 # 指定工程名
 project(InfoManageSystem)

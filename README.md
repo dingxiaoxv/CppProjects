@@ -66,7 +66,7 @@ cmake --build build
 
 # 方式 2：重新配置
 rm -rf build
-cmake -B build -DPROJECT=26.sdbus-bluenet
+cmake -B build -DPROJECT=26.sdbus
 cmake --build build
 ```
 

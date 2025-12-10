@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.16)
 project(CppProjects)
 
 # ============================================
@@ -43,7 +43,7 @@ set(ALL_PROJECTS
     "24.methodDispatcher"
     "25.nested_cmake"
     "26.sdbus"
-    "26.sdbus-bluenet"
+    "27.sdbus-bluenet"
 )
 
 # 显示编译项目信息

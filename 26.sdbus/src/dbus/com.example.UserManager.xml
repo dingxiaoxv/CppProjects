@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="/com/example/UserManager">
+  <interface name="com.example.UserManager">
+
+    <!-- 添加用户 -->
+    <method name="AddUser">
+      <arg name="username" type="s" direction="in" />
+      <arg name="age" type="u" direction="in" />
+      <arg name="email" type="s" direction="in" />
+      <arg name="userId" type="t" direction="out" />
+    </method>
+
+    <!-- 获取用户信息（返回结构体） -->
+    <method name="GetUser">
+      <arg name="userId" type="t" direction="in" />
+      <!-- 返回 (username, age, email) -->
+      <arg name="userInfo" type="(sus)" direction="out" />
+    </method>
+
+    <!-- 批量获取用户（返回字典） -->
+    <method name="GetAllUsers">
+      <!-- 返回 userId -> (username, age, email) 的字典 -->
+      <arg name="users" type="a{t(sus)}" direction="out" />
+    </method>
+
+    <!-- 更新用户标签（可变参数） -->
+    <method name="UpdateUserTags">
+      <arg name="userId" type="t" direction="in" />
+      <arg name="tags" type="av" direction="in" />
+    </method>
+
+    <!-- 用户添加信号 -->
+    <signal name="UserAdded">
+      <arg name="userId" type="t" />
+      <arg name="username" type="s" />
+    </signal>
+
+    <!-- 用户数量属性 -->
+    <property name="UserCount" type="u" access="read" />
+
+    <!-- 配置属性（变体类型） -->
+    <property name="Config" type="a{sv}" access="readwrite">
+      <annotation name="org.freedesktop.DBus.Property.EmitsChangedSignal" value="true"/>
+    </property>
+
+  </interface>
+</node>

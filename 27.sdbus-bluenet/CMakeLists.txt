@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(sdbus-bluenet CXX)
 
-set(SDBUS_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set(SDBUS_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/lib/libsdbus-c++.so)
-
 add_executable(ble-server
     src/main.cpp
     src/application.cpp
@@ -12,12 +9,8 @@ add_executable(ble-server
     src/advertisement.cpp
 )
 
-target_include_directories(ble-server PRIVATE
-    ${SDBUS_INCLUDE_DIR}
-)
+target_include_directories(ble-server PRIVATE ${VENDOR_INCLUDES})
 
-target_link_libraries(ble-server
-    ${SDBUS_LIBRARY}
-)
+target_link_libraries(ble-server ${SDBUS_LIBRARY})
 
 target_compile_options(ble-server PRIVATE -Wall -Wextra)

@@ -10,10 +10,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
 
 # ============================================
-# Spdlog 配置（Header-Only）
+# 第三方库配置
 # ============================================
-set(SPDLOG_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/third_party/include)
-include_directories(${SPDLOG_INCLUDE_DIR})
+set(VENDOR_INCLUDES ${CMAKE_SOURCE_DIR}/third_party/include)
+include_directories(${VENDOR_INCLUDES})
+set(SDBUS_LIBRARY ${CMAKE_SOURCE_DIR}/third_party/lib/libsdbus-c++.so)
 
 # ============================================
 # 统一输出目录
